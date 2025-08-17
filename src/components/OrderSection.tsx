@@ -1,41 +1,20 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Shield, Download, Smartphone, Users } from "lucide-react";
+import { useLanguage } from "@/hooks/useLanguage";
 
 const GetStartedSection = () => {
-  const steps = [
-    {
-      icon: Download,
-      title: "Скачайте приложение",
-      description: "Быстрая установка на любое устройство"
-    },
-    {
-      icon: Shield,
-      title: "Безопасная регистрация",
-      description: "Ваши данные защищены шифрованием"
-    },
-    {
-      icon: Smartphone,
-      title: "Начните отслеживание",
-      description: "Простой интерфейс для ежедневного использования"
-    },
-    {
-      icon: Users,
-      title: "Присоединяйтесь к сообществу",
-      description: "Тысячи женщин доверяют нашему приложению"
-    }
-  ];
+  const { t } = useLanguage();
 
   return (
     <section id="get-started" className="py-20 px-4 md:px-8 bg-background">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-heading font-bold text-foreground mb-6">
-            Начните заботиться о себе уже сегодня
+            {t('order.title')}
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Присоединяйтесь к тысячам женщин, которые уже используют наше приложение 
-            для отслеживания своего здоровья
+            {t('order.subtitle')}
           </p>
         </div>
 

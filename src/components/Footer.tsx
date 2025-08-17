@@ -1,4 +1,8 @@
+import { useLanguage } from "@/hooks/useLanguage";
+
 const Footer = () => {
+  const { t } = useLanguage();
+  
   return (
     <footer className="bg-foreground text-background py-12 px-4 md:px-8">
       <div className="max-w-7xl mx-auto">
@@ -6,11 +10,10 @@ const Footer = () => {
           {/* Company info */}
           <div>
             <h3 className="text-2xl font-heading font-bold text-primary mb-4">
-              Femme Calendar
+              Velluna
             </h3>
             <p className="text-background/80 leading-relaxed">
-              Создаем эксклюзивные женские календари с профессиональными фотографиями 
-              и элегантным дизайном.
+              {t('footer.description')}
             </p>
           </div>
 

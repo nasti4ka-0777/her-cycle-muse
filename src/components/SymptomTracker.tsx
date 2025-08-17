@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Smile, Meh, Frown, Heart, Zap, Brain } from "lucide-react";
+import { useLanguage } from "@/hooks/useLanguage";
 
 const symptoms = [
   { id: "cramps", label: "Спазмы", icon: "🤕" },
@@ -17,13 +18,14 @@ const symptoms = [
   { id: "nausea", label: "Тошнота", icon: "🤢" }
 ];
 
-const moods = [
-  { id: "happy", label: "Отлично", icon: Smile, color: "text-green-500" },
-  { id: "neutral", label: "Нормально", icon: Meh, color: "text-yellow-500" },
-  { id: "sad", label: "Плохо", icon: Frown, color: "text-red-500" }
-];
-
 const SymptomTracker = () => {
+  const { t } = useLanguage();
+  
+  const moods = [
+    { id: "happy", label: t('symptoms.excellent'), icon: Smile, color: "text-green-500" },
+    { id: "neutral", label: t('symptoms.normal'), icon: Meh, color: "text-yellow-500" },
+    { id: "sad", label: t('symptoms.bad'), icon: Frown, color: "text-red-500" }
+  ];
   const [selectedSymptoms, setSelectedSymptoms] = useState<string[]>([]);
   const [selectedMood, setSelectedMood] = useState<string>("");
   const [notes, setNotes] = useState("");
@@ -58,10 +60,10 @@ const SymptomTracker = () => {
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-heading font-bold text-foreground mb-6">
-            Дневник симптомов
+            {t('symptoms.title')}
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Отслеживайте симптомы и настроение для лучшего понимания своего цикла
+            {t('symptoms.subtitle')}
           </p>
         </div>
 
@@ -71,7 +73,7 @@ const SymptomTracker = () => {
             <CardHeader>
               <CardTitle className="flex items-center space-x-2">
                 <Heart className="w-5 h-5 text-primary" />
-                <span>Как вы себя чувствуете?</span>
+                <span>{t('symptoms.how_feeling')}</span>
               </CardTitle>
             </CardHeader>
             <CardContent>
@@ -99,7 +101,7 @@ const SymptomTracker = () => {
             <CardHeader>
               <CardTitle className="flex items-center space-x-2">
                 <Zap className="w-5 h-5 text-primary" />
-                <span>Симптомы</span>
+                <span>{t('symptoms.symptoms')}</span>
               </CardTitle>
             </CardHeader>
             <CardContent>
@@ -124,15 +126,15 @@ const SymptomTracker = () => {
             <CardHeader>
               <CardTitle className="flex items-center space-x-2">
                 <Brain className="w-5 h-5 text-primary" />
-                <span>Заметки</span>
+                <span>{t('symptoms.notes')}</span>
               </CardTitle>
             </CardHeader>
             <CardContent>
               <div className="space-y-2">
-                <Label htmlFor="notes">Дополнительные заметки о самочувствии</Label>
+                <Label htmlFor="notes">{t('symptoms.notes')}</Label>
                 <Textarea
                   id="notes"
-                  placeholder="Опишите ваше самочувствие, особенности дня или любые наблюдения..."
+                  placeholder={t('symptoms.notes_placeholder')}
                   value={notes}
                   onChange={(e) => setNotes(e.target.value)}
                   className="min-h-[100px]"
@@ -145,12 +147,12 @@ const SymptomTracker = () => {
           {(selectedSymptoms.length > 0 || selectedMood || notes) && (
             <Card className="shadow-soft border-0 border-primary/20">
               <CardHeader>
-                <CardTitle>Сводка дня</CardTitle>
+                <CardTitle>{t('symptoms.day_summary')}</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 {selectedMood && (
                   <div>
-                    <span className="font-medium">Настроение: </span>
+                    <span className="font-medium">{t('symptoms.mood')} </span>
                     <Badge variant="secondary">
                       {moods.find(m => m.id === selectedMood)?.label}
                     </Badge>
@@ -159,7 +161,7 @@ const SymptomTracker = () => {
                 
                 {selectedSymptoms.length > 0 && (
                   <div>
-                    <span className="font-medium">Симптомы: </span>
+                    <span className="font-medium">{t('symptoms.symptoms')}: </span>
                     <div className="flex flex-wrap gap-2 mt-2">
                       {selectedSymptoms.map(symptomId => {
                         const symptom = symptoms.find(s => s.id === symptomId);
@@ -175,13 +177,13 @@ const SymptomTracker = () => {
                 
                 {notes && (
                   <div>
-                    <span className="font-medium">Заметки: </span>
+                    <span className="font-medium">{t('symptoms.notes')}: </span>
                     <p className="text-muted-foreground mt-1">{notes}</p>
                   </div>
                 )}
                 
                 <Button onClick={handleSave} className="w-full mt-6">
-                  Сохранить данные дня
+                  {t('symptoms.save_data')}
                 </Button>
               </CardContent>
             </Card>

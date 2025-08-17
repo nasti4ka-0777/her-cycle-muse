@@ -1,49 +1,51 @@
 import { Card, CardContent } from "@/components/ui/card";
-
-const features = [
-  {
-    icon: "📅",
-    title: "Отслеживание цикла",
-    description: "Ведите точный календарь менструаций, овуляции и фертильных дней"
-  },
-  {
-    icon: "📊",
-    title: "Анализ симптомов",
-    description: "Записывайте и анализируйте симптомы, настроение и самочувствие"
-  },
-  {
-    icon: "🔔",
-    title: "Умные напоминания",
-    description: "Получайте уведомления о приближении менструации и важных днях"
-  },
-  {
-    icon: "📈",
-    title: "Прогнозы и статистика",
-    description: "Персонализированные прогнозы на основе ваших данных"
-  },
-  {
-    icon: "🔒",
-    title: "Конфиденциальность",
-    description: "Ваши данные защищены и остаются только у вас"
-  },
-  {
-    icon: "💝",
-    title: "Планирование беременности",
-    description: "Инструменты для планирования беременности или контрацепции"
-  }
-];
+import { useLanguage } from "@/hooks/useLanguage";
 
 const FeaturesSection = () => {
+  const { t } = useLanguage();
+  
+  const features = [
+    {
+      icon: "📅",
+      title: t('features.cycle_tracking'),
+      description: t('features.cycle_desc')
+    },
+    {
+      icon: "📊",
+      title: t('features.symptom_analysis'),
+      description: t('features.symptom_desc')
+    },
+    {
+      icon: "🔔",
+      title: t('features.smart_reminders'),
+      description: t('features.reminders_desc')
+    },
+    {
+      icon: "📈",
+      title: t('features.predictions'),
+      description: t('features.predictions_desc')
+    },
+    {
+      icon: "🔒",
+      title: t('features.privacy'),
+      description: t('features.privacy_desc')
+    },
+    {
+      icon: "💝",
+      title: t('features.pregnancy_planning'),
+      description: t('features.pregnancy_desc')
+    }
+  ];
+
   return (
     <section id="features" className="py-20 px-4 md:px-8 bg-gradient-secondary">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-heading font-bold text-foreground mb-6">
-            Возможности приложения
+            {t('features.title')}
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Все инструменты для комплексного отслеживания женского здоровья 
-            в одном удобном и безопасном приложении.
+            {t('features.subtitle')}
           </p>
         </div>
 
