@@ -5,6 +5,29 @@ import { useLanguage } from "@/hooks/useLanguage";
 
 const GetStartedSection = () => {
   const { t } = useLanguage();
+  
+  const steps = [
+    {
+      icon: Download,
+      title: t('order.download'),
+      description: "Быстрая установка на любое устройство"
+    },
+    {
+      icon: Shield,
+      title: "Безопасная регистрация",
+      description: "Ваши данные защищены шифрованием"
+    },
+    {
+      icon: Smartphone,
+      title: "Начните отслеживание",
+      description: "Простой интерфейс для ежедневного использования"
+    },
+    {
+      icon: Users,
+      title: "Присоединяйтесь к сообществу",
+      description: "Тысячи женщин доверяют нашему приложению"
+    }
+  ];
 
   return (
     <section id="get-started" className="py-20 px-4 md:px-8 bg-background">
@@ -45,7 +68,7 @@ const GetStartedSection = () => {
               size="lg" 
               className="text-lg px-12 py-6 shadow-elegant hover:shadow-soft transition-all duration-300"
             >
-              Начать использование бесплатно
+              {t('order.start_free')}
             </Button>
             
             <p className="text-muted-foreground">
