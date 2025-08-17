@@ -5,25 +5,28 @@ const Header = () => {
     <header className="w-full py-6 px-4 md:px-8 bg-background/80 backdrop-blur-sm border-b border-border">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         <div className="flex items-center space-x-2">
-          <h1 className="text-2xl font-heading font-bold text-primary">
-            Femme Calendar
-          </h1>
+          <div className="w-8 h-8 bg-gradient-primary rounded-full flex items-center justify-center">
+            <span className="text-white font-bold text-sm">♀</span>
+          </div>
+          <span className="text-xl font-heading font-bold text-foreground">
+            HerCycle
+          </span>
         </div>
         
         <nav className="hidden md:flex items-center space-x-8">
-          <a href="#preview" className="text-foreground/80 hover:text-primary transition-colors">
-            Превью
+          <a href="#tracker" className="text-foreground/80 hover:text-primary transition-colors">
+            Трекер цикла
           </a>
           <a href="#features" className="text-foreground/80 hover:text-primary transition-colors">
-            Особенности
+            Возможности
           </a>
-          <a href="#order" className="text-foreground/80 hover:text-primary transition-colors">
-            Заказать
+          <a href="#get-started" className="text-foreground/80 hover:text-primary transition-colors">
+            Начать
           </a>
         </nav>
 
-        <Button variant="hero" size="lg">
-          Заказать сейчас
+        <Button size="lg">
+          Начать отслеживание
         </Button>
       </div>
     </header>

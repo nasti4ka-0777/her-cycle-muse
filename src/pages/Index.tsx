@@ -1,8 +1,9 @@
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
-import PreviewSection from "@/components/PreviewSection";
+import CycleTracker from "@/components/CycleTracker";
+import SymptomTracker from "@/components/SymptomTracker";
 import FeaturesSection from "@/components/FeaturesSection";
-import OrderSection from "@/components/OrderSection";
+import GetStartedSection from "@/components/OrderSection";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -10,9 +11,10 @@ const Index = () => {
     <div className="min-h-screen">
       <Header />
       <HeroSection />
-      <PreviewSection />
+      <CycleTracker />
+      <SymptomTracker />
       <FeaturesSection />
-      <OrderSection />
+      <GetStartedSection />
       <Footer />
     </div>
   );
